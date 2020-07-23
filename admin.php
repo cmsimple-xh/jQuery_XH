@@ -1,10 +1,5 @@
 <?php
 
-/*
- * @version $Id: admin.php 265 2016-12-04 20:17:55Z hi $
- *
- */
-
 /**
  * jQuery for CMSimple
  *

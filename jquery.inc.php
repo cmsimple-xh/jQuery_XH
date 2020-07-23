@@ -1,10 +1,5 @@
 <?php
 
-/*
- * @version $Id: jquery.inc.php 272 2017-07-02 08:25:14Z hi $
- *
- */
-
 /**
  * jQuery for CMSimple
  *

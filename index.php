@@ -1,10 +1,5 @@
 <?php
 
-/*
- * @version $Id: index.php 257 2015-03-12 20:05:31Z hi $
- *
- */
-
 /**
  * jQuery for CMSimple
  *
