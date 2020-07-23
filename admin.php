@@ -84,7 +84,7 @@ if (isset($_GET['jquery'])) {
         $o .= "\n" . '<p>&copy;2011-2016 <a href="http://cmsimple.holgerirmler.de/" target="_blank">http://CMSimple.HolgerIrmler.de</a></p>';
         $o .= "\n" . '<p>';
         $o .= "\n" . 'jQuery Version: ';
-        $o .= '<script type="text/javascript">
+        $o .= '<script>
 					var migrate = " & Migrate-Plugin";
 					if (typeof jQuery.migrateWarnings === \'undefined\') {
 						migrate = "";
@@ -93,7 +93,7 @@ if (isset($_GET['jquery'])) {
 			   </script>';
         $o .= "\n" . tag('br');
         $o .= "\n" . 'jQueryUI Version: ';
-        $o .= '<script type="text/javascript">document.write(jQuery.ui.version)</script>';
+        $o .= '<script>document.write(jQuery.ui.version)</script>';
         $o .= "\n" . '</p>';
         $o .= "\n" . '</div>';
     }
