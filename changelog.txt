@@ -1,4 +1,4 @@
-Full history since v.1.6.3 is now available on GitHub https://github.com/TN03/jQuery_XH
+Full history since v.1.6.6 is now available on GitHub https://github.com/cmsimple-xh/jQuery_XH
 
 ========================================================================================
 
@@ -11,6 +11,8 @@ Full history since v.1.6.3 is now available on GitHub https://github.com/TN03/jQ
  Default configuration set to the most current value.
 
 ------------------------------------------------------------------------------------------------------------------
+
+Full history since v.1.6.3 is now available on GitHub https://github.com/TN03/jQuery_XH
 
  Version 1.6.5 2020-07-23
 
