@@ -22,6 +22,9 @@ Full history since v.1.6.6 is now available on GitHub https://github.com/cmsimpl
 
  slightly revised help
 
+ securely integrate jQuery with a Content Security Policy (CSP) and a nonce,
+ if Sec-Header_XH is installed
+
 ------------------------------------------------------------------------------------------------------------------
 
  Version 1.6.8 2024-10-14
