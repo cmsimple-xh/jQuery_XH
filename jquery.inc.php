@@ -25,7 +25,7 @@ if (!defined('CMSIMPLE_XH_VERSION')) {
 global $hjs, $plugin_cf, $pth;
 
 function include_jQuery($path = '') {
-    global $pth, $plugin_cf, $hjs;
+    global $pth, $plugin_cf, $hjs, $jquery_nonce;
 
     if (!defined('JQUERY')) {
         if ($path == '') {
@@ -35,11 +35,11 @@ function include_jQuery($path = '') {
                 return;
             }
         }
-        $js = '<script src="' . $path . '"></script>';
+        $js = '<script' .$jquery_nonce . ' src="' . $path . '"></script>';
         if ($plugin_cf['jquery']['load_migrate'] == 'true') {
             $migrate = $pth['folder']['plugins'] . 'jquery/lib/migrate/' . $plugin_cf['jquery']['version_migrate'];
             if (is_file($migrate)) {
-                $js .= "\n" . '<script src="' . $migrate . '"></script>';
+                $js .= "\n" . '<script' . $jquery_nonce . ' src="' . $migrate . '"></script>';
             } else {
                 e('missing', 'file', $migrate);
                 return;
@@ -51,7 +51,7 @@ function include_jQuery($path = '') {
 }
 
 function include_jQueryUI($path = '') {
-    global $pth, $plugin_cf, $hjs;
+    global $pth, $plugin_cf, $hjs, $jquery_nonce;
 
     if (!defined('JQUERY_UI')) {
         if ($path == '') {
@@ -61,7 +61,7 @@ function include_jQueryUI($path = '') {
                 return;
             }
         }
-        $hjs .= '<script src="' . $path . '"></script>';
+        $hjs .= '<script' . $jquery_nonce . ' src="' . $path . '"></script>';
         define('JQUERY_UI', TRUE);
 
         if (file_exists($pth['folder']['template'] . 'jquery_ui/jquery_ui.css')) {
@@ -91,7 +91,7 @@ function include_jQueryUI($path = '') {
 }
 
 function include_jQueryPlugin($name = '', $path = '') {
-    global $hjs, $jQueryPlugins;
+    global $hjs, $jQueryPlugins, $jquery_nonce;
 
     if (!isset($jQueryPlugins)) {
         $jQueryPlugins = array();
@@ -105,7 +105,7 @@ function include_jQueryPlugin($name = '', $path = '') {
             }
             $name = strtolower($name);
             if (!in_array($name, $jQueryPlugins)) {
-                $hjs .= "\n" . '<script src="' . $path . '"></script>';
+                $hjs .= "\n" . '<script' . $jquery_nonce . ' src="' . $path . '"></script>';
                 $jQueryPlugins[] .= $name;
             }
         }
