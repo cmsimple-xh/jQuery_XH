@@ -79,21 +79,21 @@ if(XH_wantsPluginAdministration('jquery')) {
     if(($admin != 'plugin_main') && ($admin != '')) {
         $o .= plugin_admin_common($action, $admin, $plugin);
     }
-//**************************************************************************
+
     $jqPluginName = 'jQuery for CMSimple';
     $jqPluginVersion = '1.6.9';
     $jqPluginDate = '2026-03-05';
     $jqCopyright = '2024';
-    $jqCmsVersion_arr = array('1.7.0', 'and higher');
+    $jqCmsVersionArray = array('1.7.0', 'and higher');
     $jqPhpVersion = '7.4';
-//**************************************************************************
+
     if($admin == '' || $admin == 'plugin_main') {
         $o .= "\n" . '<div>';
         $o .= "\n" . "<h1>$jqPluginName</h1>";
         $o .= "\n" . "<p>$jqPluginVersion - $jqPluginDate</p>";
         $o .= "\n" . '<p>&copy;2011-2023 <a href="http://cmsimple.holgerirmler.de/" target="_blank">http://CMSimple.HolgerIrmler.de</a></p>';
         $o .= "\n" . "<p>&copy;$jqCopyright <a href=\"https://www.cmsimple-xh.org/?About-CMSimple_XH/The-XH-Team\" target=\"_blank\">The CMSimple_XH developers</a></p>";
-        $o .= jquery_Systemcheck($jqCmsVersion_arr, $jqPhpVersion);
+        $o .= jquery_Systemcheck($jqCmsVersionArray, $jqPhpVersion);
         $o .= "\n" . '</div>';
     }
 }

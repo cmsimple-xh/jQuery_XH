@@ -23,7 +23,7 @@ if(basename(__FILE__) == basename($_SERVER['SCRIPT_FILENAME']))
  *
  * @return html.
  */
-function jquery_Systemcheck($jqCmsVersion_arr, $jqPhpVersion) {
+function jquery_Systemcheck($jqCmsVersionArray, $jqPhpVersion) {
 
     global $pth, $plugin_cf, $plugin_tx;
 
@@ -80,15 +80,15 @@ function jquery_Systemcheck($jqCmsVersion_arr, $jqPhpVersion) {
 // CMSimple_XH version
     $cmsVersionTmp = CMSIMPLE_XH_VERSION;
     $cmsVersionTmp = str_replace(array('CMSimple_XH '), '', $cmsVersionTmp);
-    if (version_compare($cmsVersionTmp, $jqCmsVersion_arr[0], '<')) {
+    if (version_compare($cmsVersionTmp, $jqCmsVersionArray[0], '<')) {
         $o .= '<p class="xh_warning">'
             . CMSIMPLE_XH_VERSION
             . ' &#x2192 '
             . $ptx['supported_not']
             . ' '
-            . $jqCmsVersion_arr[0]
+            . $jqCmsVersionArray[0]
             . ' - '
-            . end($jqCmsVersion_arr)
+            . end($jqCmsVersionArray)
             . '.</p>'
             . "\n";
     } else {
