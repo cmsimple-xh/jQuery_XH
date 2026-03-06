@@ -19,6 +19,20 @@ if(basename(__FILE__) == basename($_SERVER['SCRIPT_FILENAME']))
 }
 
 /**
+ * read directory
+ *
+ * @return array
+ */
+function jqScanDir($path) {
+
+    $scanArray = scandir($path);
+    $scanArray = array_diff($scanArray, array('.', '..'));
+    asort($scanArray);
+
+    return $scanArray;
+}
+
+/**
  * Checks system requirements
  *
  * @return html.
@@ -32,42 +46,28 @@ function jquery_Systemcheck($jqCmsVersionArray, $jqPhpVersion) {
 
     $o = '<h2>System Check</h2>' . "\n";
 // jQuery Core version
-    $jqVersionCoreArray = scandir($pth['folder']['plugin'] . 'lib/jquery/');
-    $jqVersionCoreArray = array_diff($jqVersionCoreArray, array('.', '..'));
-    asort($jqVersionCoreArray);
-    if (version_compare($pcf['version_core'], end($jqVersionCoreArray), '<')) {
-        $o .= '<p class="xh_warning">jQuery Core: '
-           . $pcf['version_core']
-           . ' &#x2192 '
-           . $ptx['version_not_latest']
-           . '</p>'
-           . "\n";
-    } else {
-        $o .= '<p class="xh_success">jQuery Core: '
-           . $pcf['version_core']
-           . ' &#x2192 '
-           . $ptx['version_latest']
-           . '</p>'
-           . "\n";
-    }
+    $jqVersionCoreArray = jqScanDir($pth['folder']['plugin'] . 'lib/jquery/');
 // jQuery UI version
-    $jqVersionUiArray = scandir($pth['folder']['plugin'] . 'lib/jquery_ui/');
-    $jqVersionUiArray = array_diff($jqVersionUiArray, array('.', '..'));
-    asort($jqVersionUiArray);
-    if (version_compare($pcf['version_ui'], end($jqVersionUiArray), '<')) {
-        $o .= '<p class="xh_warning">jQuery UI: '
-           . $pcf['version_ui']
-           . ' &#x2192 '
-           . $ptx['version_not_latest']
-           . '</p>'
-           . "\n";
-    } else {
-        $o .= '<p class="xh_success">jQuery UI: '
-           . $pcf['version_ui']
-           . ' &#x2192 '
-           . $ptx['version_latest']
-           . '</p>'
-           . "\n";
+    $jqVersionUiArray = jqScanDir($pth['folder']['plugin'] . 'lib/jquery_ui/');
+// check jQuery
+    $jqCheckArray = array(array($jqVersionCoreArray, $pcf['version_core']),
+                          array($jqVersionUiArray, $pcf['version_ui']));
+    foreach($jqCheckArray as $jqCheck) {
+        if (version_compare($jqCheck[1], end($jqCheck[0]), '<')) {
+            $o .= '<p class="xh_warning">jQuery Core: '
+               . $jqCheck[1]
+               . ' &#x2192 '
+               . $ptx['version_not_latest']
+               . '</p>'
+               . "\n";
+        } else {
+            $o .= '<p class="xh_success">jQuery Core: '
+               . $jqCheck[1]
+               . ' &#x2192 '
+               . $ptx['version_latest']
+               . '</p>'
+               . "\n";
+        }
     }
 // jQuery migrate
     if ($pcf['load_migrate'] != '') {
@@ -116,26 +116,46 @@ function jquery_Systemcheck($jqCmsVersionArray, $jqPhpVersion) {
            . "\n";
     }
 // write permissions
-    $op_filename_arr = array($pth['file']['plugin_config'],
+    $jqFilenameArray = array($pth['file']['plugin_config'],
                              $pth['folder']['plugin_languages'],
                              $pth['file']['plugin_language']);
-    foreach($op_filename_arr as $op_filename) {
-        if(is_writable($op_filename)) {
+    foreach($jqFilenameArray as $jqFilename) {
+        if(is_writable($jqFilename)) {
             $o .= '<p class="xh_success">'
-               . $op_filename
+               . $jqFilename
                . ' &#x2192 '
                . $ptx['writable_yes']
                . '</p>'
                . "\n";
         } else {
             $o .= '<p class="xh_fail">'
-               . $op_filename
+               . $jqFilename
                . ' &#x2192 '
                . $ptx['writable_not']
                . '</p>'
                . "\n";
         }
     }
+// checks access protection
+        if (XH_isAccessProtected($pth['file']['plugin_config']) === true) {
+            $o .= '<p class="xh_success"><a target="_blank" href="'
+                . $pth['file']['plugin_config']
+                . '">'
+                . $pth['file']['plugin_config']
+                . '</a> &#x2192 '
+                . $ptx['protected_yes']
+                . '</p>'
+                . "\n";
+        } else {
+            $o .= '<p class="xh_warning"><a target="_blank" href="'
+                . $pth['file']['plugin_config']
+                . '">'
+                . $pth['file']['plugin_config']
+                . '</a> &#x2192 '
+                . $ptx['protected_not']
+                . '</p>'
+                . "\n";
+        }
 
     return $o;
 }

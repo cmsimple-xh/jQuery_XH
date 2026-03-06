@@ -22,6 +22,8 @@ $plugin_tx['jquery']['supported_not'] = "is not supportedt";
 $plugin_tx['jquery']['migrate_activated'] = "Is jQuery Migrate really necessary?";
 $plugin_tx['jquery']['writable_yes'] = "is writable";
 $plugin_tx['jquery']['writable_not'] = "is not writable";
+$plugin_tx['jquery']['protected_yes'] = "The file is protected.";
+$plugin_tx['jquery']['protected_not'] = "The file may not be protected.";
 
 $plugin_tx['jquery']['cf_autoload']="Check to auto-load the libraries on every page.";
 $plugin_tx['jquery']['cf_autoload_libraries']="Whether to auto-load only jQuery or jQuery together with jQueryUI.";
