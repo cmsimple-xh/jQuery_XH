@@ -50,32 +50,44 @@ function jquery_Systemcheck($jqCmsVersionArray, $jqPhpVersion) {
 // jQuery UI version
     $jqVersionUiArray = jqScanDir($pth['folder']['plugin'] . 'lib/jquery_ui/');
 // check jQuery
-    $jqCheckArray = array(array($jqVersionCoreArray, $pcf['version_core']),
-                          array($jqVersionUiArray, $pcf['version_ui']));
+    $jqCheckArray = array(array($jqVersionCoreArray, $pcf['version_core'], 'Core'),
+                          array($jqVersionUiArray, $pcf['version_ui'], 'UI'));
     foreach($jqCheckArray as $jqCheck) {
         if (version_compare($jqCheck[1], end($jqCheck[0]), '<')) {
-            $o .= '<p class="xh_warning">jQuery Core: '
-               . $jqCheck[1]
-               . ' &#x2192 '
-               . $ptx['version_not_latest']
-               . '</p>'
-               . "\n";
+            $o .= '<p class="xh_warning">jQuery '
+                . $jqCheck[2]
+                . ': '
+                . $jqCheck[1]
+                . ' &#x2192 '
+                . $ptx['version_not_latest']
+                . '</p>'
+                . "\n";
         } else {
-            $o .= '<p class="xh_success">jQuery Core: '
-               . $jqCheck[1]
-               . ' &#x2192 '
-               . $ptx['version_latest']
-               . '</p>'
-               . "\n";
+            $o .= '<p class="xh_success">jQuery '
+                . $jqCheck[2]
+                . ': '
+                . $jqCheck[1]
+                . ' &#x2192 '
+                . $ptx['version_latest']
+                . '</p>'
+                . "\n";
         }
     }
 // jQuery migrate
     if ($pcf['load_migrate'] != '') {
         $o .= '<p class="xh_warning">jQuery Migrate: '
-           . ' &#x2192 '
-           . $ptx['migrate_activated']
-           . '</p>'
-           . "\n";
+            . ' &#x2192 '
+            . $ptx['migrate_activated']
+            . '</p>'
+            . "\n";
+    }
+// jQuery autoload
+    if ($pcf['autoload'] != '') {
+        $o .= '<p class="xh_warning">jQuery Autoload: '
+            . ' &#x2192 '
+            . $ptx['autoload_activated']
+            . '</p>'
+            . "\n";
     }
 // CMSimple_XH version
     $cmsVersionTmp = CMSIMPLE_XH_VERSION;
@@ -102,18 +114,18 @@ function jquery_Systemcheck($jqCmsVersionArray, $jqPhpVersion) {
 // PHP version
     if(version_compare(phpversion(), $jqPhpVersion, '<')) {
         $o .= '<p class="xh_fail">PHP: '
-           . phpversion()
-           . ' &#x2192 '
-           . $ptx['supported_not']
-           . '</p>'
-           . "\n";
+            . phpversion()
+            . ' &#x2192 '
+            . $ptx['supported_not']
+            . '</p>'
+            . "\n";
     } else {
         $o .= '<p class="xh_success">PHP: '
-           . phpversion()
-           . ' &#x2192 '
-           . $ptx['supported_yes']
-           . '</p>'
-           . "\n";
+            . phpversion()
+            . ' &#x2192 '
+            . $ptx['supported_yes']
+            . '</p>'
+            . "\n";
     }
 // write permissions
     $jqFilenameArray = array($pth['file']['plugin_config'],
@@ -122,18 +134,18 @@ function jquery_Systemcheck($jqCmsVersionArray, $jqPhpVersion) {
     foreach($jqFilenameArray as $jqFilename) {
         if(is_writable($jqFilename)) {
             $o .= '<p class="xh_success">'
-               . $jqFilename
-               . ' &#x2192 '
-               . $ptx['writable_yes']
-               . '</p>'
-               . "\n";
+                . $jqFilename
+                . ' &#x2192 '
+                . $ptx['writable_yes']
+                . '</p>'
+                . "\n";
         } else {
             $o .= '<p class="xh_fail">'
-               . $jqFilename
-               . ' &#x2192 '
-               . $ptx['writable_not']
-               . '</p>'
-               . "\n";
+                . $jqFilename
+                . ' &#x2192 '
+                . $ptx['writable_not']
+                . '</p>'
+                . "\n";
         }
     }
 // checks access protection

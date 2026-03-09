@@ -21,7 +21,7 @@ if (!defined('CMSIMPLE_XH_VERSION')) {
     exit;
 }
 
-require($pth['folder']['plugins'] . 'jquery/includes/jqsystemcheck.php');
+require($pth['folder']['plugin_includes'] . 'jqsystemcheck.php');
 
 /*
  * Register the plugin menu items.
@@ -80,7 +80,7 @@ if(XH_wantsPluginAdministration('jquery')) {
         $o .= plugin_admin_common($action, $admin, $plugin);
     }
 
-    $jqPluginName = 'jQuery for CMSimple';
+    $jqPluginName = 'jQuery for CMSimple_XH';
     $jqPluginVersion = '1.6.9';
     $jqPluginDate = '2026-03-05';
     $jqCopyright = '2024';
@@ -93,6 +93,7 @@ if(XH_wantsPluginAdministration('jquery')) {
         $o .= "\n" . "<p>$jqPluginVersion - $jqPluginDate</p>";
         $o .= "\n" . '<p>&copy;2011-2023 <a href="http://cmsimple.holgerirmler.de/" target="_blank">http://CMSimple.HolgerIrmler.de</a></p>';
         $o .= "\n" . "<p>&copy;$jqCopyright <a href=\"https://www.cmsimple-xh.org/?About-CMSimple_XH/The-XH-Team\" target=\"_blank\">The CMSimple_XH developers</a></p>";
+        $o .= "\n" . '<p><a target="_blank" href="https://jquery.com">jQuery</a> is published under <a href="https://opensource.org/license/mit" target="_blank">MIT license</a></p>';
         $o .= jquery_Systemcheck($jqCmsVersionArray, $jqPhpVersion);
         $o .= "\n" . '</div>';
     }

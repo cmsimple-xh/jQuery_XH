@@ -20,6 +20,7 @@ $plugin_tx['jquery']['version_not_latest'] = "The latest version is not selected
 $plugin_tx['jquery']['supported_yes'] = "is supported";
 $plugin_tx['jquery']['supported_not'] = "is not supportedt";
 $plugin_tx['jquery']['migrate_activated'] = "Is jQuery Migrate really necessary?";
+$plugin_tx['jquery']['autoload_activated'] = "Is autoload necessary?";
 $plugin_tx['jquery']['writable_yes'] = "is writable";
 $plugin_tx['jquery']['writable_not'] = "is not writable";
 $plugin_tx['jquery']['protected_yes'] = "The file is protected.";
