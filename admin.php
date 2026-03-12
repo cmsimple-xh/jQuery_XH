@@ -93,6 +93,8 @@ if(XH_wantsPluginAdministration('jquery')) {
         $o .= "\n" . "<p>$jqPluginVersion - $jqPluginDate</p>";
         $o .= "\n" . '<p>&copy;2011-2023 <a href="http://cmsimple.holgerirmler.de/" target="_blank">http://CMSimple.HolgerIrmler.de</a></p>';
         $o .= "\n" . "<p>&copy;$jqCopyright <a href=\"https://www.cmsimple-xh.org/?About-CMSimple_XH/The-XH-Team\" target=\"_blank\">The CMSimple_XH developers</a></p>";
+        $o .= "\n" . "<p>$jqPluginName is published under <a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\" target=\"_blank\">GNU General Public License, version 2</a></p>";
+        $o .= "\n" . '<hr>';
         $o .= "\n" . '<p><a target="_blank" href="https://jquery.com">jQuery</a> is published under <a href="https://opensource.org/license/mit" target="_blank">MIT license</a></p>';
         $o .= jquery_Systemcheck($jqCmsVersionArray, $jqPhpVersion);
         $o .= "\n" . '</div>';
