@@ -18,12 +18,13 @@ if (!defined('CMSIMPLE_XH_VERSION')) {
     exit;
 }
 
+// for security headers
+$jquery_nonce = '';
+if (function_exists('sh_cspHeaderNonce')) {
+    $jquery_nonce = ' nonce="' . sh_cspHeaderNonce() . '"';
+}
+
 if ($plugin_cf['jquery']['autoload'] == '1' || $plugin_cf['jquery']['autoload'] == 'true') {
-    // for security headers
-    $jquery_nonce = '';
-    if (function_exists('sh_cspHeaderNonce')) {
-        $jquery_nonce = ' nonce="' . sh_cspHeaderNonce() . '"';
-    }
     include_once($pth['folder']['plugins'] . 'jquery/jquery.inc.php');
     include_jQuery();
     if ($plugin_cf['jquery']['autoload_libraries'] == 'jQuery & jQueryUI') {
