@@ -26,6 +26,7 @@ $plugin_tx['jquery']['writable_not'] = "is not writable";
 $plugin_tx['jquery']['protected_yes'] = "This file is protected.";
 $plugin_tx['jquery']['protected_not'] = "This file may not be protected.";
 
+$plugin_tx['jquery']['cf_version_migrate']="jQuery Migrate restores deprecated functions and behaviors so that older code continues to run properly on newer versions of jQuery Core.<br>- for jQuery Core 1.x und 2.x - jQuery Migrate 1.x<br>- for jQuery Core 3.x - jQuery Migrate 3.x<br>- for jQuery Core 4.x - jQuery Migrate 4.x";
 $plugin_tx['jquery']['cf_autoload']="Check to auto-load the libraries on every page.";
 $plugin_tx['jquery']['cf_autoload_libraries']="Whether to auto-load only jQuery or jQuery together with jQueryUI.";
 $plugin_tx['jquery']['cf_load_migrate']="Whether to load the Migrate-plugin or not. See <a target=\"_blank\" href=\"https://jquery.com/download/#jquery-migrate-plugin\">https://jquery.com/download/#jquery-migrate-plugin</a> for more informations.";
