@@ -52,7 +52,7 @@ jQueryUI to
 a CMSimple installation and make the libraries available to use with
 other CMSimple-Plugins. </p>
 
-<p class="additional">Version 1.6.8 - 2024-10-14<br>
+<p class="additional">
 <span class="additional">&copy; 2011-2023 </span><a class="additional" target="_blank" href="http://cmsimple.holgerirmler.de">Holger Irmler</a>.<br>
 <span class="additional">&copy; 2024 </span><a class="additional" target="_blank" href="https://www.cmsimple-xh.org/?About-CMSimple_XH/The-XH-Team">CMSimple_XH developers</a>.
 </p>
@@ -230,13 +230,13 @@ function myplugin() {
     $jqerror = '';
     if (!file_exists($pth['folder']['plugins'] . 'jquery/jquery.inc.php')) {
         $jqerror = '<div class="cmsimplecore_warning">' .
-                '<b>Ups!</b>' . tag('br') .
+                '<b>Ups!</b><br>' .
                 'Plugin ' . ucfirst(basename(dirname(__FILE__))) .
-                ' requires jQuery4CMSimple - Plugin!' . tag('br') .
-                'Please download and install jQuery4CMSimple' . tag('br') .
+                ' requires jQuery4CMSimple - Plugin!<br>' .
+                'Please download and install jQuery4CMSimple<br>' .
                 'from <a href=' .
-                '"http://www.cmsimple-xh.org/wiki/doku.php/extend:jquery4cmsimple">' .
-                ' www.cmsimple-xh.org/wiki</a>.' .
+                '"https://github.com/cmsimple-xh/jQuery_XH/releases">' .
+                ' github.com/cmsimple-xh/jQuery_XH</a>.' .
                 '</div>';
 //drop the rest of the plugin-code
         return($jqerror);
@@ -369,13 +369,13 @@ function myplugin() {
     $jqerror = '';
     if (!file_exists($pth['folder']['plugins'] . 'jquery/jquery.inc.php')) {
         $jqerror = '<div class="cmsimplecore_warning">' .
-                '<b>Ups!</b>' . tag('br') .
+                '<b>Ups!</b><br>' .
                 'Plugin ' . ucfirst(basename(dirname(__FILE__))) .
-                ' requires jQuery4CMSimple - Plugin!' . tag('br') .
-                'Please download and install jQuery4CMSimple' . tag('br') .
+                ' requires jQuery4CMSimple - Plugin!<br>' .
+                'Please download and install jQuery4CMSimple<br>' .
                 'from <a href=' .
-                '"http://www.cmsimple-xh.org/wiki/doku.php/extend:jquery4cmsimple">' .
-                ' www.cmsimple-xh.org/wiki</a>.' .
+                '"https://github.com/cmsimple-xh/jQuery_XH/releases">' .
+                ' github.com/cmsimple-xh/jQuery_XH</a>.' .
                 '</div>';
 //drop the rest of the plugin-code
         return($jqerror);
@@ -561,7 +561,7 @@ see http://jquery.org/license
 CMSimple:</span><br>
 
 Copyright 2011, Holger Irmler<br>
-
+Copyright 2024 The-XH-Team<br>
 licensed under the GPL Version 2 or later of your choice</li>
 
 </ul>

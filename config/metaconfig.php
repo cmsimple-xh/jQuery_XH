@@ -3,15 +3,15 @@
 /**
  * jQuery for CMSimple
  *
- * Version:    1.6.8
- * Build:      2024101401
+ * Version:    1.6.9
+ * Build:      20260030501
  * Copyright:  Holger Irmler
  * Email:      CMSimple@HolgerIrmler.de
  * Website:    http://CMSimple.HolgerIrmler.de
  * Copyright:  CMSimple_XH developers
  * Website:    https://www.cmsimple-xh.org/?About-CMSimple_XH/The-XH-Team
- 
- * */
+ *
+ */
  
 $plugin_mcf['jquery']['version_core']="function:jquery_getCoreVersions";
 $plugin_mcf['jquery']['version_ui']="function:jquery_getUiVersions";

@@ -3,18 +3,25 @@
 /**
  * jQuery for CMSimple
  *
- * Version:    1.6.8
- * Build:      2024101401
+ * Version:    1.6.9
+ * Build:      20260030501
  * Copyright:  Holger Irmler
  * Email:      CMSimple@HolgerIrmler.de
  * Website:    http://CMSimple.HolgerIrmler.de
  * Copyright:  CMSimple_XH developers
  * Website:    https://www.cmsimple-xh.org/?About-CMSimple_XH/The-XH-Team
- * */
+ *
+ */
 
 if (!defined('CMSIMPLE_XH_VERSION')) {
     header('HTTP/1.0 403 Forbidden');
     exit;
+}
+
+// for security headers
+$jquery_nonce = '';
+if (function_exists('sh_cspHeaderNonce')) {
+    $jquery_nonce = ' nonce="' . sh_cspHeaderNonce() . '"';
 }
 
 if ($plugin_cf['jquery']['autoload'] == '1' || $plugin_cf['jquery']['autoload'] == 'true') {

@@ -2,6 +2,42 @@ Full history since v.1.6.6 is now available on GitHub https://github.com/cmsimpl
 
 ========================================================================================
 
+ Version 1.6.9 2026-03-05
+
+ Update jQuery to 4.0.0         --> https://blog.jquery.com/2026/01/17/jquery-4-0-0/
+                                --> https://github.com/jquery/jquery/releases/tag/4.0.0
+ Update jQuery migrate to 3.6.0 --> https://github.com/jquery/jquery-migrate/releases/tag/3.6.0
+ Update jQuery migrate to 4.0.2 --> https://github.com/jquery/jquery-migrate/milestone/23?closed=1
+ Update jQuery ui to 1.14.2     --> https://jqueryui.com/changelog/1.14.1/
+                                --> https://github.com/jquery/jquery-ui/milestone/8?closed=1
+
+ System check integrated
+
+ The following table indicates which jQuery Migrate versions can be used with
+ which jQuery versions:
+
+ jQuery version     jQuery Migrate version
+ 1.x                1.x
+ 2.x                1.x
+ 3.x                3.x
+ 4.x                4.x
+
+ Remove jQuery 1.12.4
+ Remove jQuery 2.2.4
+ Remove jQuery 3.6.4
+
+ Remove jQuery ui 1.14.0
+
+ Remove jQuery migrate 1.4.1
+ Remove jQuery migrate 3.5.2
+
+ slightly revised help
+
+ securely integrate jQuery with a Content Security Policy (CSP) and a nonce,
+ if Sec-Header_XH is installed
+
+------------------------------------------------------------------------------------------------------------------
+
  Version 1.6.8 2024-10-14
 
  Update jQuery migrate to 3.5.2
